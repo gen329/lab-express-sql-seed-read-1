@@ -33,7 +33,7 @@ songs.get("/:id", async (req,res) => {
 
 songs.post("/", checkName, checkBoolean, async (req, res)=> {
   try {
-    const createdSong = await createdSong(req.body)
+    const createdSong = await createSong(req.body)
     res.json(createdSong)
   } catch (error) {
     res.status(400).json({error:"ERROR"})
@@ -43,7 +43,7 @@ songs.post("/", checkName, checkBoolean, async (req, res)=> {
 songs.delete("/:id", async (req,res) => {
   try {
     const { id } = req.params;
-    const deletedSong = await deletedSong(id);
+    const deletedSong = await deleteSong(id);
     if(deletedSong) {
       res.status(200).json({sucess:true, payload: {data: deletedSong}})
      } else {
@@ -56,7 +56,7 @@ songs.delete("/:id", async (req,res) => {
 
 songs.put("/:id", async(req,res) => {
   const { id } = req.params;
-  const updatedSong = await updatedSong(id, req.body);
+  const updatedSong = await updateSong(id, req.body);
   if(updatedSong.id) {
     res.status(200).json(updatedSong);
   } else (
