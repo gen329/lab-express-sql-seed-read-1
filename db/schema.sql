@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS songs_dev;
-CREATE DATABSE songs_dev;
-\connect songs_dev;
+DROP DATABASE IF EXISTS tuner_songs;
+CREATE DATABSE tuner_songs;
+\connect tuner_songs;
 
 CREATE TABLE songs (
   id SERIAL PRIMARY KEY,
